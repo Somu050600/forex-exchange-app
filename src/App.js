@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Import Routes
+import store from "./redux/store";
+import CurrencyConverter from "./components/CurrencyConverter";
+import ExchangeRateDisplay from "./components/ExchangeRateDisplay";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 
 function App() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Router>
+        <div className="App">
+          <header className="App-header">
+            <Header />
+          </header>
+          <main>
+            <Routes>
+              <Route path="/" element={<CurrencyConverter />} />
+              <Route path="/exchange-rates" element={<ExchangeRateDisplay />} />
+              {/* <Route path="/historical-chart" element={<HistoricalChart />} /> */}
+            </Routes>
+          </main>
+        </div>
+      </Router>
+    </Provider>
   );
 }
 

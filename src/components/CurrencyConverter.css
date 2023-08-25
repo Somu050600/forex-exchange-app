@@ -1,0 +1,23 @@
+/* CurrencyConverter.css */
+.dark {
+    background-color: #333; /* Dark mode background color */
+    color: #fff; /* Dark mode text color */
+  }
+  
+  .dark a {
+    color: #bbb; /* Dark mode link text color */
+  }
+  
+  .dark button {
+    background-color: #555; /* Dark mode button background color */
+  }
+  
+  /* Light mode styles (default) */
+  a {
+    color: #007bff; /* Light mode link text color */
+  }
+  
+  button {
+    background-color: #007bff; /* Light mode button background color */
+  }
+  
