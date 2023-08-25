@@ -40,7 +40,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             Live Exchange Rates
           </a>
         </li>
-        <li class=" py-5">
+        <li className=" py-5">
           <button
             className={`ml-auto px-4 py-2 rounded ${
               darkMode ? "bg-gray-800 text-white" : "bg-blue-500 text-white"

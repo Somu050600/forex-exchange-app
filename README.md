@@ -6,6 +6,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### Built With
+
+List of major frameworks/libraries used to bootstrap this project.
+
+- ![Static Badge](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+- ![Static Badge](https://img.shields.io/badge/REACT_REDUX-8A2BE2?style=for-the-badge&logo=redux)
+- ![Static Badge](https://img.shields.io/badge/TAILWIND_CSS-8A2BE2?style=for-the-badge&logo=tailwindcss&logoColor=%2338BDF8&color=%23FFF)
+
 ## Available Scripts
 
 To install all the dependencies and then start the project, you can run:
