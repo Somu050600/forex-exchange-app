@@ -1,4 +1,4 @@
-### This react app is deployed on Netlify - https://listed-board.netlify.app/
+### This react app is deployed on Netlify - https://forex-exchange-app.netlify.app/
 
 # Getting Started with Create React App
 
