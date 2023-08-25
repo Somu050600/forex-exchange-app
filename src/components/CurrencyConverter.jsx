@@ -45,7 +45,7 @@ const CurrencyConverter = () => {
       dispatch(setCurrencies(currencyData));
       const latestRates = await fetchLatestExchangeRates();
       dispatch(setExchangeRates(latestRates));
-      console.log("fetched");
+      // console.log("fetched");
     } catch (error) {
       console.error(error);
     }
@@ -55,7 +55,7 @@ const CurrencyConverter = () => {
     try {
       const currency1 = exchangeRates[sourceCurrency];
       const currency2 = exchangeRates[targetCurrency];
-      console.log(currency1, currency2, exchangeRates);
+      // console.log(currency1, currency2, exchangeRates);
 
       // Perform currency conversion using the exchange rate
       const convertedAmountValue =

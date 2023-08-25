@@ -49,7 +49,7 @@ const HistoricalChart = ({ targetCurrencies, targetCurrency }) => {
   useEffect(() => {
     if (data.length > 0) {
       const ctx = chartRef.current.getContext("2d");
-      console.log(data, "###");
+      // console.log(data, "###");
 
       if (chartInstance) {
         chartInstance.destroy();
