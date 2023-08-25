@@ -24,7 +24,7 @@ const CurrencyConverter = () => {
   } = useSelector((state) => state.currency);
   const [targetCurrencies, setTargetCurrencies] = useState([
     sourceCurrency,
-    targetCurrency,
+    // targetCurrency,
   ]);
 
   const { darkMode } = useSelector((state) => state.mode);
@@ -43,8 +43,8 @@ const CurrencyConverter = () => {
     try {
       const currencyData = await fetchCurrencies();
       dispatch(setCurrencies(currencyData));
-      // const latestRates = await fetchLatestExchangeRates();
-      // dispatch(setExchangeRates(latestRates));
+      const latestRates = await fetchLatestExchangeRates();
+      dispatch(setExchangeRates(latestRates));
       console.log("fetched");
     } catch (error) {
       console.error(error);
@@ -70,7 +70,7 @@ const CurrencyConverter = () => {
     <div
       className={`p-4 ${
         darkMode ? "dark" : ""
-      } flex flex-col  place-items-center`}
+      } flex flex-col  place-items-center `}
     >
       <h2 className="text-2xl font-semibold mb-4">Currency Converter</h2>
       <div className="flex flex-col md:flex-row mb-4">
@@ -81,7 +81,7 @@ const CurrencyConverter = () => {
           value={sourceCurrency}
           onChange={(e) => {
             dispatch(setSourceCurrency(e.target.value));
-            setTargetCurrencies([e.target.value, targetCurrency]);
+            setTargetCurrencies([e.target.value]);
           }}
         >
           {Object.keys(currencies).map((currencyCode) => (
@@ -91,7 +91,7 @@ const CurrencyConverter = () => {
           ))}
         </select>
         <input
-          className={`p-2 border rounded mb-2 md:mb-0 md:w-24 md:mr-2 ${
+          className={`p-2 pl-4 border rounded mb-2 md:mb-0 md:w-24 md:mr-2 ${
             darkMode ? "dark" : ""
           }`}
           type="number"
@@ -107,7 +107,7 @@ const CurrencyConverter = () => {
           value={targetCurrency}
           onChange={(e) => {
             dispatch(setTargetCurrency(e.target.value));
-            setTargetCurrencies([sourceCurrency, e.target.value]);
+            // setTargetCurrencies([sourceCurrency, e.target.value]);
           }}
         >
           {Object.keys(currencies).map((currencyCode) => (
@@ -117,10 +117,18 @@ const CurrencyConverter = () => {
           ))}
         </select>
       </div>
-      <p className="mb-4">Converted Amount: {convertedAmount.toFixed(3)}</p>
+      <p className="mb-4">
+        Converted Amount:{" "}
+        <span className="p-2 border rounded mb-2 font-semibold">
+          {convertedAmount.toFixed(3)}
+        </span>
+      </p>
 
       <div className="mb-4">
-        <HistoricalChart targetCurrencies={targetCurrencies} />
+        <HistoricalChart
+          targetCurrencies={targetCurrencies}
+          targetCurrency={targetCurrency}
+        />
       </div>
     </div>
   );

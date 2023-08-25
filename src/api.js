@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_URL = "http://data.fixer.io/api";
-const API_KEY = "8255247a89ed945c4effdb6bb68e51a2"; //process.env.API_KEY;
+const API_KEY = "65966af2d9076feb9627042c495c4610"; //process.env.API_KEY;
 
 export const fetchCurrencies = async () => {
   try {
