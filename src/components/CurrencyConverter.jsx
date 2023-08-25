@@ -130,6 +130,13 @@ const CurrencyConverter = () => {
           targetCurrency={targetCurrency}
         />
       </div>
+      <p className="text-xs text-neutral-400">
+        * All api call are from{" "}
+        <a href="https://openexchangerates.org/">
+          https://openexchangerates.org/
+        </a>{" "}
+        only
+      </p>
     </div>
   );
 };

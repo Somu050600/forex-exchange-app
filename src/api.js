@@ -1,16 +1,12 @@
 import axios from "axios";
 
-const API_URL = "http://data.fixer.io/api";
-const API_KEY = "65966af2d9076feb9627042c495c4610"; //process.env.API_KEY;
+const API_URL = "https://openexchangerates.org/api";
+const API_KEY = "d1176212716e4a139bdef8dbd6e7a29d"; //process.env.API_KEY;
 
 export const fetchCurrencies = async () => {
   try {
-    const response = await axios.get(`${API_URL}/symbols`, {
-      params: {
-        access_key: API_KEY,
-      },
-    });
-    return response.data.symbols;
+    const response = await axios.get(`${API_URL}/currencies.json`);
+    return response.data;
   } catch (error) {
     throw error;
   }
@@ -18,9 +14,9 @@ export const fetchCurrencies = async () => {
 
 export const fetchLatestExchangeRates = async () => {
   try {
-    const response = await axios.get(`${API_URL}/latest`, {
+    const response = await axios.get(`${API_URL}/latest.json`, {
       params: {
-        access_key: API_KEY,
+        app_id: API_KEY,
       },
     });
     return response.data.rates;
@@ -31,10 +27,10 @@ export const fetchLatestExchangeRates = async () => {
 
 export const fetchHistoricalData = async (date) => {
   try {
-    const response = await axios.get(`${API_URL}/${date}`, {
+    const response = await axios.get(`${API_URL}/historical/${date}.json`, {
       params: {
-        access_key: API_KEY,
-        base: "EUR",
+        app_id: API_KEY,
+        // base: "EUR",
       },
     });
     return response.data;

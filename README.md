@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bae4d47d-558b-405e-ba89-07e50dc01a9a/deploy-status)](https://app.netlify.com/sites/forex-exchange-app/deploys)
+
 ### This react app is deployed on Netlify - https://forex-exchange-app.netlify.app/
 
 # Getting Started with Create React App

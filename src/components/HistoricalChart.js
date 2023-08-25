@@ -15,19 +15,21 @@ const HistoricalChart = ({ targetCurrencies, targetCurrency }) => {
       const currentDate = new Date(); // Today's date
 
       const historicalDataPromises = [];
+      const historicalDates = [];
+
       for (let i = 6; i >= 0; i--) {
         const date = new Date(currentDate);
         date.setDate(currentDate.getDate() - i); // Subtract days to get historical dates
         const dateStr = date.toISOString().split("T")[0];
 
-        const historicalData = fetchHistoricalData(dateStr);
-        historicalDataPromises.push(historicalData);
+        historicalDates.push(dateStr);
+        historicalDataPromises.push(fetchHistoricalData(dateStr));
       }
 
       Promise.all(historicalDataPromises)
         .then((responses) => {
-          const historicalRates = responses.map((response) => ({
-            date: response.date,
+          const historicalRates = responses.map((response, index) => ({
+            date: historicalDates[index], // Use the corresponding historical date
             rates: response.rates,
           }));
           setData(historicalRates);
@@ -36,6 +38,7 @@ const HistoricalChart = ({ targetCurrencies, targetCurrency }) => {
           console.error(error);
         });
     };
+
     fetchHistoricalExchangeRates();
   }, []);
 
@@ -46,6 +49,7 @@ const HistoricalChart = ({ targetCurrencies, targetCurrency }) => {
   useEffect(() => {
     if (data.length > 0) {
       const ctx = chartRef.current.getContext("2d");
+      console.log(data, "###");
 
       if (chartInstance) {
         chartInstance.destroy();

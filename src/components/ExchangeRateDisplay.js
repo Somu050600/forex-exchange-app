@@ -103,9 +103,9 @@ const ExchangeRateDisplay = () => {
         </button>
       </div>
       {/* </div> */}
-      <ul role="list" class="divide-y divide-gray-100">
+      <ul role="list" className="divide-y divide-gray-100">
         {sortedCurrencies.map((currency) => (
-          <li key={currency} class="flex justify-center gap-x-6 py-5">
+          <li key={currency} className="flex justify-center gap-x-6 py-5">
             1 {sourceCurrency} ={" "}
             {(
               parseFloat(exchangeRates[currency]) /
